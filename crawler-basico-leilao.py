@@ -5,15 +5,10 @@ from requests import get
 from bs4 import BeautifulSoup
 import re
 
-# url = 'https://www.freitasleiloeiro.com.br/leiloes/pesquisar?query=&categoria=1&subCategoria=3&subCategoriaLabel=Motos&estado=&cidade=&faixaValor=&faixaValorLabel=&condicao=&patio=17'
 url = 'https://www.freitasleiloeiro.com.br/leiloes/pesquisar?query=&categoria=2&subCategoria=&subCategoriaLabel=&estado=&cidade=&faixaValor=3&faixaValorLabel=De%20R$%2025.000%20At%C3%A9%20R$%2050.000&condicao=&patio='
 response = get(url)
 
 html_soup = BeautifulSoup(response.text, 'html.parser')
-
-
-# In[2]:
-
 
 lista_item = html_soup.find(id='table_agenda_body')
 
