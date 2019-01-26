@@ -19,6 +19,9 @@ i = 0
 for row in rows:
     item = rows[i]
 
+    # data_hora_consulta
+    data_hora_consulta = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
+    
     # captura Lote
     lote=item.h3.text
 
@@ -31,27 +34,24 @@ for row in rows:
     nome_bruto= re.sub(' +', ' ',nome_bruto)
     # separa o nome bruto, cada linha vira um item de lista
     nome_bruto = nome_bruto.splitlines()
-
+    
     # captura data_hora do leilao
-    data_hora = nome_bruto[1]
-
+    data_hora_leilao = nome_bruto[1]
+    
     # captura local do leilao
     local = nome_bruto[2]
-
+    
     # captura nome do item em leilao
     nome = nome_bruto[5]
-
+    
     # Lance
     # Coleta lance com R$ e remove o . do milhar
     lance = item.tr.td.text.replace('.','')
     # prepara a string
     lance = lance[3:].replace(',','.')
-
-    linha = '"' + lote + '","' + data_hora + '","' + local + '","' + nome + '","' + lance + '";'
-
+     
     #Imprime no log
     with open('consulta.log', 'a') as consulta:
-        consulta.write(linha)
-        consulta.write('\n')
-
-    i = i + 1
+        consulta.write('"{}","{}","{}","{}","{}","{}";\n'.format(data_hora_consulta,lote,data_hora_leilao,local,nome,lance))
+    
+    i = i + 1    
