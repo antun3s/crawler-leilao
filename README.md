@@ -1,6 +1,6 @@
 # crawler-leilao
-Meu primeiro exercício em Python decidi dazer crawler de site de leilao 
-Ele se acessa uma página do site freitasleiloeiro.com.br e faz a extração dos dados abaixo:
+Meu primeiro exercício em Python decidi dazer crawler de site de leilao.
+Ele se acessa uma página do site freitasleiloeiro.com.br e faz a extração dos dados abaixo, pare depois salvar em CSV.
 - lote
 - visualizações
 - lance
